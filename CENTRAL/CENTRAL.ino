@@ -1,15 +1,10 @@
-#include <SoftwareSerial.h>
-#include <Stepper.h>
-#include <EEPROM.h>
-
-Stepper motor(64, 9, 11, 10, 12);
-
 int ligado = LOW;
 int led = LOW;
 int recebido = 0;
 int atualizar = LOW;
 int ativado = 0;
 int relea = LOW;
+int botaolig = LOW;
 
 #define ledR 2
 #define ledG 3
@@ -24,6 +19,7 @@ int relea = LOW;
 #define botao 13
 #define clock_ 5
 #define atualizacao 8
+#define btnld 12
 
 void setup() {
   // put your setup code here, to run once:
@@ -37,11 +33,18 @@ void setup() {
   pinMode(clock_, OUTPUT);
   pinMode(atualizacao, OUTPUT);
   pinMode(botao, INPUT);
-  motor.setSpeed(500);
+  pinMode(btnld, INPUT);
 }
 
 void loop() {
   // put your main code here, to run repeatedly:  
+  botaolig = digitalRead(btnld);
+  switch(botaolig) {
+    case 1:
+      if(relea == HIGH) {relea = LOW;} else {relea = HIGH;}
+      digitalWrite(rele, relea);
+    break;
+  }
   if(analogRead(x) >= 900) {
      analogWrite(buzzer, analogRead(potenciometro));
      digitalWrite(ledR, HIGH);
