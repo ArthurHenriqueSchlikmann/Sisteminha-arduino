@@ -105,7 +105,7 @@ void loop() {
         break;
         }
   }
-  Serial.print("potenciometro ");
+  Serial.print("temperatura ");
   Serial.println(analogRead(potenciometro));
   Serial.print("modulo joystic x ");
   Serial.println(analogRead(x));
@@ -117,7 +117,7 @@ void loop() {
   Serial.println(analogRead(lcr));
   Serial.print("Ventuinha ");
   Serial.println(ligado);
-  Serial.print("Relé ");
+  Serial.print("Rele ");
   Serial.println(relea);
   Serial.println("---------------------------------");
 }
