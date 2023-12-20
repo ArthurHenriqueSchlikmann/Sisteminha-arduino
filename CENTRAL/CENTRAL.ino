@@ -55,7 +55,7 @@ void loop() {
     delay(5000);
   }
   if(analogRead(x) <= 200) {
-    if(analogRead >= 20) {
+    if(analogRead(A2) >= 20) {
       digitalWrite(ledG, HIGH); 
     }
   } else {
