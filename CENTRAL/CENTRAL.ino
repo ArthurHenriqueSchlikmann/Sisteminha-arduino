@@ -6,8 +6,16 @@ int ativado = 0;
 int relea = LOW;
 int botaolig = LOW;
 int num [10][7] {
-  {segA, segB, segC, segD, segE, segF},
-  
+  {segA, segB, segC, segD, segE, segF}, //zero
+  {segB, segC}, //um
+  {segA, segB, segE, segD, segG}, //dois
+  {segA, segB, segC, segD, segG}, //três
+  {segB, segC, segF, segG}, //quatro
+  {segA, segC, segD, segF, segG}, //cinco
+  {segA, segC, segD, segE, segF, segG}, //seis
+  {segA, segB, segC}, //sete
+  {segA, segB, segC, segE, segF, segG}, //oito
+  {segA, segB, segC, segF, segG}, //nove
 }
 
 #define ledR 2
@@ -57,14 +65,9 @@ void loop() {
       digitalWrite(rele, relea);
     break;
   }
-  if(analogRead(x) >= 900) {
-     analogWrite(buzzer, analogRead(potenciometro));
-     digitalWrite(ledR, HIGH);
-     delay(5000);
-  } else {
-    digitalWrite(buzzer, LOW);
-    digitalWrite(ledR, LOW);
-    delay(5000);
+  if(analogRead(x) >= 800) {
+    if(led == HIGH) {led = LOW;} else {led = HIGH;}
+    digitalWrite(ledB, led);
   }
   if(analogRead(x) <= 200) {
     if(analogRead(A2) >= 20) {
@@ -75,10 +78,8 @@ void loop() {
   }
   if(analogRead(y) <= 90) {
     Serial.println("0 no serial para acender a luz azul");
-    Serial.println("1 no serial para o buzzer na frequencia do potenciometro");
-    Serial.println("2 no serial para acender ou apagar os led azul");
-    Serial.println("3 no serial para usar o registrador de deslocamento");
-    Serial.println("4 no serial para ligar ou desligar todos os modulos");
+    Serial.println("1 no serial para acender ou apagar os led azul");
+    Serial.println("2 no serial para ligar ou desligar todos os modulos");
     Serial.println("girar o joystic para a direita o mesmo que 1");
     Serial.println("girar o joystic para a esquerda acendera a luz verde se o som for mais que 20");
     Serial.println("-----------------------------------------------------------------------------");
@@ -86,16 +87,6 @@ void loop() {
   if(Serial.available() > 0) {
     recebido = Serial.read();
     switch(recebido) {
-      case '1':
-        if(ativado == 0) {
-          analogWrite(buzzer, analogRead(potenciometro));
-          digitalWrite(ledR, HIGH);
-          delay(5000);
-          ativado = 0;
-          digitalWrite(buzzer, LOW);
-          digitalWrite(ledR, LOW);
-        }
-        break;
         case '0':
         digitalWrite(ledB, HIGH);
         delay(5000);
@@ -106,12 +97,6 @@ void loop() {
         digitalWrite(ledB, led);
         break;
         case '3':
-        if(atualizar == LOW) {atualizar = HIGH;} else {atualizar = LOW;}
-        if(atualizar == LOW) {led = LOW;} else {led = HIGH;}
-        digitalWrite(ledG, led);
-        digitalWrite(atualizacao, atualizar);
-        break;
-        case '4':
           if(relea == HIGH) {relea = LOW;} else {relea = HIGH;}
           digitalWrite(rele, relea);
         break;
