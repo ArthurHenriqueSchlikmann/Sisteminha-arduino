@@ -9,30 +9,38 @@ int botaolig = LOW;
 #define ledR 2
 #define ledG 3
 #define ledB 4
-#define buzzer 10
 #define x A3
 #define y A4
 #define potenciometro A1
 #define audio A2
 #define lcr A0
 #define rele 7
-#define botao 13
-#define clock_ 5
-#define atualizacao 8
+#define nada 13
+#define segA 9
+#define segB 8
+#define segC 5
+#define segD 0
+#define segE 1
+#define segF 10
+#define segG 11
 #define btnld 12
 
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(1200);
   Serial.println("Iniciando");
-  pinMode(buzzer, OUTPUT);
+  pinMode(segD, OUTPUT);
   pinMode(ledR, OUTPUT);
   pinMode(ledB, OUTPUT);
   pinMode(ledG, OUTPUT);
   pinMode(rele, OUTPUT);
-  pinMode(clock_, OUTPUT);
-  pinMode(atualizacao, OUTPUT);
-  pinMode(botao, INPUT);
+  pinMode(segA, OUTPUT);
+  pinMode(segB, OUTPUT);
+  pinMode(segC, OUTPUT);
+  pinMode(segD, OUTPUT);
+  pinMode(segE, OUTPUT);
+  pinMode(segF, OUTPUT);
+  pinMode(segG, OUTPUT);
   pinMode(btnld, INPUT);
 }
 
