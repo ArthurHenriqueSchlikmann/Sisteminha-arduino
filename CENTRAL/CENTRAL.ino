@@ -5,6 +5,10 @@ int atualizar = LOW;
 int ativado = 0;
 int relea = LOW;
 int botaolig = LOW;
+int num [10][7] {
+  {segA, segB, segC, segD, segE, segF},
+  
+}
 
 #define ledR 2
 #define ledG 3
