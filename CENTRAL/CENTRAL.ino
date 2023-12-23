@@ -94,6 +94,9 @@ void loop() {
     numero(led);
     delay(5000);
     apaga();
+    numero(recebido);
+    delay(5000);
+    apaga();
   }
   if(Serial.available() > 0) {
     recebido = Serial.read();
