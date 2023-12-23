@@ -1,3 +1,20 @@
+#define ledR 2
+#define ledG 3
+#define ledB 4
+#define x A3
+#define y A4
+#define potenciometro A1
+#define audio A2
+#define lcr A0
+#define rele 7
+#define segA 8
+#define segB 9
+#define segC 5
+#define segD 13
+#define segE 1
+#define segF 10
+#define segG 11
+
 int ligado = LOW;
 int led = LOW;
 int recebido = 0;
@@ -16,25 +33,7 @@ int num [10][7] {
   {segA, segB, segC}, //sete
   {segA, segB, segC, segE, segF, segG}, //oito
   {segA, segB, segC, segF, segG}, //nove
-}
-
-#define ledR 2
-#define ledG 3
-#define ledB 4
-#define x A3
-#define y A4
-#define potenciometro A1
-#define audio A2
-#define lcr A0
-#define rele 7
-#define nada 13
-#define segA 9
-#define segB 8
-#define segC 5
-#define segD 0
-#define segE 1
-#define segF 10
-#define segG 11
+};
 
 void setup() {
   // put your setup code here, to run once:
