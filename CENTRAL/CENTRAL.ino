@@ -14,6 +14,7 @@
 #define segE 1
 #define segF 10
 #define segG 11
+#define agua A5
 
 int ligado = LOW;
 int led = LOW;
@@ -99,6 +100,10 @@ void loop() {
     apaga();
     numero(Serial.available());
     delay(5000);
+    apaga();
+    numero(agua);
+    delay(5000);
+    apaga();
   }
   if(Serial.available() > 0) {
     recebido = Serial.read();
