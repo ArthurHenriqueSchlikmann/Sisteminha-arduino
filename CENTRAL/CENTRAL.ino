@@ -106,11 +106,11 @@ void loop() {
         delay(5000);
         digitalWrite(ledB, LOW);
         break;
-        case '2':
+        case '1':
         if(led == LOW) {led = HIGH;} else {led = LOW;}
         digitalWrite(ledB, led);
         break;
-        case '3':
+        case '2':
           if(relea == HIGH) {relea = LOW;} else {relea = HIGH;}
           digitalWrite(rele, relea);
         break;
