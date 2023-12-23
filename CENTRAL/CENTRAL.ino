@@ -97,6 +97,8 @@ void loop() {
     numero(recebido);
     delay(5000);
     apaga();
+    numero(Serial.available());
+    delay(5000);
   }
   if(Serial.available() > 0) {
     recebido = Serial.read();
