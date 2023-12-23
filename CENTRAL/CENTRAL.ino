@@ -103,7 +103,7 @@ void loop() {
     apaga();
     if(agua < 10) {
     numero(agua);
-    delay(5000)
+    delay(5000);
     } else {
       digitalWrite(ledG, HIGH);
       delay(5000);
