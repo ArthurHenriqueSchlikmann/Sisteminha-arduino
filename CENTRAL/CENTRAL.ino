@@ -71,20 +71,31 @@ void loop() {
     digitalWrite(ledB, led);
   }
   if(analogRead(x) <= 200) {
-    if(analogRead(A2) >= 10) {
+    if(analogRead(audio) >= 10) {
       digitalWrite(ledG, HIGH); 
     }
   } else {
     digitalWrite(ledG, LOW);
-    numero(analog);    
+    apaga();
+    numero(analogRead(audio));    
   }
   if(analogRead(y) <= 90) {
     Serial.println("0 no serial para acender a luz azul");
-    Serial.println("1 no serial para acender ou apagar os led azul");
+    Serial.println("1 no serial para acender ou apagar o led azul");
     Serial.println("2 no serial para ligar ou desligar todos os modulos");
     Serial.println("girar o joystic para a direita o mesmo que 1");
-    Serial.println("girar o joystic para a esquerda acendera a luz verde se o som for mais que 20");
+    Serial.println("girar o joystic para a esquerda acendera a luz verde se o som for mais que 10");
+    Serial.println("girar o joystic para cima para exibir este menu");
     Serial.println("-----------------------------------------------------------------------------");
+  }
+  if(analogRead(y) >= 800) {
+    apaga();
+    numero(relea);
+    delay(5000);
+    apaga();
+    numero(led);
+    delay(5000);
+    apaga();
   }
   if(Serial.available() > 0) {
     recebido = Serial.read();
