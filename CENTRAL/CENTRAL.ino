@@ -101,8 +101,14 @@ void loop() {
     numero(Serial.available());
     delay(5000);
     apaga();
+    if(agua < 10) {
     numero(agua);
-    delay(5000);
+    delay(5000)
+    } else {
+      digitalWrite(ledG, HIGH);
+      delay(5000);
+      digitalWrite(ledG, LOW); 
+    }
     apaga();
   }
   if(Serial.available() > 0) {
