@@ -137,6 +137,8 @@ void loop() {
   Serial.println(ligado);
   Serial.print("Rele ");
   Serial.println(relea);
+  Serial.print("detector de agua ");
+  Serial.println(agua);
   Serial.println("---------------------------------");
 }
 
