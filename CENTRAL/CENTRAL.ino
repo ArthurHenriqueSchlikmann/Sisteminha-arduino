@@ -35,7 +35,6 @@ int num [10][7] {
 #define segE 1
 #define segF 10
 #define segG 11
-#define btnld 12
 
 void setup() {
   // put your setup code here, to run once:
@@ -53,13 +52,13 @@ void setup() {
   pinMode(segE, OUTPUT);
   pinMode(segF, OUTPUT);
   pinMode(segG, OUTPUT);
-  pinMode(btnld, INPUT);
-  apaga()
+  pinMode(12, INPUT);
+  apaga();
 }
 
 void loop() {
   // put your main code here, to run repeatedly:  
-  botaolig = digitalRead(btnld);
+  botaolig = digitalRead(12);
   switch(botaolig) {
     case 1:
       if(relea == HIGH) {relea = LOW;} else {relea = HIGH;}
