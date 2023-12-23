@@ -54,6 +54,7 @@ void setup() {
   pinMode(segF, OUTPUT);
   pinMode(segG, OUTPUT);
   pinMode(btnld, INPUT);
+  apaga()
 }
 
 void loop() {
@@ -70,11 +71,12 @@ void loop() {
     digitalWrite(ledB, led);
   }
   if(analogRead(x) <= 200) {
-    if(analogRead(A2) >= 20) {
+    if(analogRead(A2) >= 10) {
       digitalWrite(ledG, HIGH); 
     }
   } else {
     digitalWrite(ledG, LOW);
+    numero(analog);    
   }
   if(analogRead(y) <= 90) {
     Serial.println("0 no serial para acender a luz azul");
@@ -123,4 +125,20 @@ void rgb(int r, int g, int b) {
   analogWrite(ledR, r);
   analogWrite(ledG, g);
   analogWrite(ledB, b);
+}
+
+void apaga() {
+  digitalWrite(segA, LOW);
+  digitalWrite(segB, LOW);
+  digitalWrite(segC, LOW);
+  digitalWrite(segD, LOW);
+  digitalWrite(segE, LOW);
+  digitalWrite(segF, LOW);
+  digitalWrite(segG, LOW);
+}
+
+void numero(int n) {
+  for(int i=0; i<7; i++) {
+    digitalWrite(num[n][i], HIGH);
+  }
 }
